@@ -7,10 +7,10 @@ export interface Source {
   language: string;
   country: string;
 }
-// export interface ResponseObject {
-//   status: string;
-//   sources: Source[];
-// }
+export interface ResponseObject {
+  status: string;
+  sources: Source[];
+}
 export interface Data {
   status: string;
   totalResults: number;
