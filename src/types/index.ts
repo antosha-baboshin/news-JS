@@ -1,11 +1,11 @@
 export interface Source {
   id: string;
   name: string;
-//   description: string;
-//   url: string;
-//   category: string;
-//   language: string;
-//   country: string;
+  description: string;
+  url: string;
+  category: string;
+  language: string;
+  country: string;
 }
 // export interface ResponseObject {
 //   status: string;
@@ -14,9 +14,9 @@ export interface Source {
 export interface Data {
   status: string;
   totalResults: number;
-  articles: News[];
+  articles: NewsInterface[];
 }
-export interface News {
+export interface NewsInterface {
   source: Source;
   author: string;
   title: string;
