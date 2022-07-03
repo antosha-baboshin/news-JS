@@ -1,16 +1,16 @@
-import { ResponseObject, Data } from "../../types/index";
+import { ResponseObject, Data } from '../../types/index';
 
 class Loader {
     baseLink: string;
-    options: {[key: string]: string};
-    
-    constructor(baseLink: string, options: {[key: string]: string}) {
+    options: { [key: string]: string };
+
+    constructor(baseLink: string, options: { [key: string]: string }) {
         this.baseLink = baseLink;
         this.options = options;
     }
 
     getResp(
-        { endpoint, options = {} }: {endpoint: string; options?: {sources?: string}},
+        { endpoint, options = {} }: { endpoint: string; options?: { sources?: string } },
         callback: (data: ResponseObject | Data) => void = () => {
             console.error('No callback for GET response');
         }
@@ -28,10 +28,10 @@ class Loader {
         return res;
     }
 
-    makeUrl(options: {[key: string]: string}, endpoint: string): string {
-        const urlOptions: {[key: string]: string} = { ...this.options, ...options };
-        let url: string = `${this.baseLink}${endpoint}?`;
-        
+    makeUrl(options: { [key: string]: string }, endpoint: string): string {
+        const urlOptions: { [key: string]: string } = { ...this.options, ...options };
+        let url = `${this.baseLink}${endpoint}?`;
+
         Object.keys(urlOptions).forEach((key: string) => {
             url += `${key}=${urlOptions[key]}&`;
         });
@@ -39,7 +39,12 @@ class Loader {
         return url.slice(0, -1);
     }
 
-    load(method: string, endpoint: string, callback: (data: ResponseObject | Data) => void, options: {sources?: string} = {}): void {
+    load(
+        method: string,
+        endpoint: string,
+        callback: (data: ResponseObject | Data) => void,
+        options: { sources?: string } = {}
+    ): void {
         fetch(this.makeUrl(options, endpoint), { method })
             .then(this.errorHandler)
             .then((res) => res.json())

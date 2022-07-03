@@ -1,5 +1,5 @@
 import AppLoader from './appLoader';
-import { ResponseObject, Data } from "../../types/index";
+import { ResponseObject, Data } from '../../types/index';
 
 class AppController extends AppLoader {
     getSources(callback: (data: ResponseObject | Data) => void): void {

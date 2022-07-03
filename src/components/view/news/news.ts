@@ -2,9 +2,9 @@ import { NewsInterface } from '../../../types/index';
 import './news.css';
 
 class News {
-    draw(data: NewsInterface[]):void {
+    draw(data: NewsInterface[]): void {
         const news = data.length >= 10 ? data.filter((_item: NewsInterface, idx: number) => idx < 10) : data;
-        
+
         const fragment: DocumentFragment = document.createDocumentFragment();
         const newsItemTemp: HTMLTemplateElement = document.querySelector('#newsItemTemp') as HTMLTemplateElement;
 
