@@ -5,7 +5,7 @@ class News {
     draw(data: NewsInterface[]):void {
         const news = data.length >= 10 ? data.filter((_item: NewsInterface, idx: number) => idx < 10) : data;
         
-        const fragment: HTMLElement = document.createDocumentFragment() as unknown as HTMLElement;
+        const fragment: DocumentFragment = document.createDocumentFragment();
         const newsItemTemp: HTMLTemplateElement = document.querySelector('#newsItemTemp') as HTMLTemplateElement;
 
         news.forEach((item: NewsInterface, idx: number) => {

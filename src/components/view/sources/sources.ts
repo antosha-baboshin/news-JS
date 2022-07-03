@@ -2,8 +2,8 @@ import './sources.css';
 import { Source } from '../../../types/index';
 
 class Sources {
-    draw(data: Source[]) {
-        const fragment = document.createDocumentFragment();
+    draw(data: Source[]):void {
+        const fragment: DocumentFragment = document.createDocumentFragment();
         const sourceItemTemp: HTMLTemplateElement = document.querySelector('#sourceItemTemp') as HTMLTemplateElement;
         
         data.forEach((item) => {
