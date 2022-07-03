@@ -1,5 +1,4 @@
-import { ResponseObject, Data } from '../../types/index';
-
+import { ResponseObject, Data, Callback } from '../../types/index';
 class Loader {
     baseLink: string;
     options: { [key: string]: string };
@@ -11,7 +10,7 @@ class Loader {
 
     getResp(
         { endpoint, options = {} }: { endpoint: string; options?: { sources?: string } },
-        callback: (data: ResponseObject | Data) => void = () => {
+        callback: Callback<ResponseObject | Data> = () => {
             console.error('No callback for GET response');
         }
     ): void {
@@ -42,7 +41,7 @@ class Loader {
     load(
         method: string,
         endpoint: string,
-        callback: (data: ResponseObject | Data) => void,
+        callback: Callback<ResponseObject | Data>,
         options: { sources?: string } = {}
     ): void {
         fetch(this.makeUrl(options, endpoint), { method })

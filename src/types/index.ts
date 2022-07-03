@@ -26,3 +26,6 @@ export interface NewsInterface {
     publishedAt: string;
     content: string;
 }
+export interface Callback<T> {
+    (data: T): void;
+}
